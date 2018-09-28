@@ -24,6 +24,14 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+pip-selfcheck.json
+tcl/
+Scripts/
+Lib/
+Include/
+
+comments.txt
+points.txt
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
