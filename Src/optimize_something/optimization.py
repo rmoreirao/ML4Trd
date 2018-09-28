@@ -61,7 +61,9 @@ def optimize_portfolio(sd=dt.datetime(2008, 1, 1), ed=dt.datetime(2009, 1, 1), \
         return sr * -1
 
     guess_alloc = np.full(len(syms),100/len(syms))
-    bounds = ((0,100), (0,100), (0,100), (0,100), (0,100))
+
+    bounds = [(0, 100) for x in range(len(syms))]
+
     # only satisfied when sum of elements is 1.
     cons = ({'type': 'eq', 'fun': lambda x: 100 - np.sum(x)})
     result = spo.minimize(find_best_allocation,guess_alloc, bounds=bounds, constraints=cons, method='SLSQP',options={'disp':True})

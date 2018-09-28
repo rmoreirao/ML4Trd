@@ -87,27 +87,7 @@ class Grader(object):
     def __str__(self):   
         return "<{} at {:x}: total_points: {}, #results: {}>".format(self.__class__.__name__, id(self), self.total_points, len(self.results))
     
-  
-@contextmanager    
-def time_limit(seconds, msg="Exceeded time limit!"):    
-    """A contextmanager that raises a TimeoutException if execution takes longer than specified time.
- 
-    Usage: 
-        with time_limit(1):   
-            # do stuff within 1 second  
- 
-    Note: seconds must be an integer.     
-    Based on: http://stackoverflow.com/a/601168  
-    """  
-    def signal_handler(signum, frame):  
-        raise TimeoutException, msg  
-    signal.signal(signal.SIGALRM, signal_handler) 
-    signal.alarm(seconds)  
-    try:     
-        yield   
-    finally:     
-        signal.alarm(0)     
-    
+
   
 def proc_wrapper(func,rv,pos_args,keyword_args): 
     try:    
